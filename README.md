@@ -10,7 +10,7 @@ There will be multi-profile functionality so that a person can select which diet
 and set their goals accordingly.
 There will also be the option for a different user to log in.
 
-### User Story 1:
+### User Story 1 - Basic Functionality:
 - As a user, I want to be able to modify my goals and my progress
 - As a user, I want to be able to select which macronutrients I want to track
 - As a user, I want to be able to add or remove different nutritional profiles (diets) for my person
