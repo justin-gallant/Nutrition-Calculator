@@ -11,9 +11,10 @@ public class Person {
     private int weight;
     private int dietSetting = 0;
 
-    ArrayList<Diet> diets = new ArrayList<Diet>();
+    ArrayList<Diet> diets = new ArrayList<>();
     Scanner scanner  = new Scanner(System.in);
 
+    // CONSTRUCTOR
     public Person() {
         System.out.println("Thank you for using CalorieCounter.");
         System.out.println("We can now begin setting up your profile. Please fill in the information below:");
