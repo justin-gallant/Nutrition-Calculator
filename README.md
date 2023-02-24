@@ -14,7 +14,7 @@ There will also be the option for a different user to log in.
 - As a user, I want to be able to modify my goals and my progress
 - As a user, I want to be able to track the big three nutrients essential for basic dieting
 - As a user, I want to be able to add or remove different nutritional profiles for different goals (diets)
-- As a user, I want to be able to be able to adjust the tracking period from daily to bi-weekly etc.
+- As a user, I want the app to calculate the dietary requirements for my goal
 - As a user, I want to be able to see my previous tracking period's results
 
 ## Phase 1 - ...:
