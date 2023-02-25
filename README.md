@@ -5,7 +5,7 @@
 ### Proposal:
 
 I want to propose a **Dietary Guiding Tool**. 
-This can be used to help a person determine how much calories, protein, and carbohydrates they need.
+This can be used to help a person determine how many calories, protein, and carbohydrates they need.
 Primary audience will be those who are active and into weightlifting.
 There will be multi-diet functionality so that a person can select which diet they follow
 and set their goals accordingly.
