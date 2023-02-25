@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Person {
     private String name;
-    private char sex;
+    private String sex;
     private int age;
     private int height;
     private int weight;
@@ -27,8 +27,8 @@ public class Person {
     public void setUp() {
         System.out.println("What is your name?");
         this.name = scanner.next();
-        System.out.println("What is your sex?");
-        this.sex = scanner.next().charAt(0);
+        System.out.println("What is your sex? (\"M\" or \"F\")");
+        this.sex = scanner.next();
         System.out.println("How old are you?");
         this.age = scanner.nextInt();
         System.out.println("What is your height (cm)?");
@@ -80,11 +80,11 @@ public class Person {
         this.age = age;
     }
 
-    public char getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(char sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 }

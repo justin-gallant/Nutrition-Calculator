@@ -1,23 +1,17 @@
 package model;
 
+import java.util.ArrayList;
+
 public abstract class Nutrient {
     String name;
-    int goal;
-    int current = 0;
+    ArrayList<Double> goal = new ArrayList<>();
 
-    // REQUIRES: toAdd > 0
-    // MODIFIES: nutrient
-    // EFFECTS: adds the amount to the goal
-    void addtoCurrent(int toAdd) {
-        this.current += toAdd;
+    void setGoal(double newGoal, Person person) {
+        goal.set(person.getDietSetting(), newGoal);
     }
 
-    void setGoal(int newGoal) {
-        this.goal = newGoal;
-    }
-
-    int getGoal() {
-        return this.goal;
+    double getGoal(Person person) {
+        return goal.get(person.getDietSetting());
     }
 
 }
