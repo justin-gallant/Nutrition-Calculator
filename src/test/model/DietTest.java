@@ -28,13 +28,16 @@ public class DietTest {
     }
 
     @Test
-    public void testBmrCalculator() {
-        Diet diet = new Diet(test, "M");
-    }
-
-    @Test
-    public void testGain() {
-        Diet diet = new Diet(test, "G");
+    public void testCalculateProtein() {
+        Diet diet = new Diet(test, "L");
+        double multiplier = (2.2 * 1.15);
+        assertEquals(diet.calculateProtein(multiplier), 202.39999999999998);
+        Diet diet1 = new Diet(test, "M");
+        multiplier = (2.2 * 0.95);
+        assertEquals(diet1.calculateProtein(multiplier), 167.2);
+        Diet diet2 = new Diet(test, "G");
+        multiplier = (2.2 * 1.15);
+        assertEquals(diet2.calculateProtein(multiplier), 202.39999999999998);
     }
 
 }
