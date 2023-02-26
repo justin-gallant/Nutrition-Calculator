@@ -8,10 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DietTest {
     Person test;
+    Diet testDiet;
 
     @BeforeEach
     public void runBefore() {
         test = new Person("Test", "M", 18, 175, 80);
+        testDiet = new Diet(test, "M");
     }
 
     @Test
@@ -38,6 +40,21 @@ public class DietTest {
         Diet diet2 = new Diet(test, "G");
         multiplier = (2.2 * 1.15);
         assertEquals(diet2.calculateProtein(multiplier), 202.39999999999998);
+    }
+
+    @Test
+    public void testGetCalories() {
+        assertEquals(testDiet.getCalories(), 2655.0625);
+    }
+
+    @Test
+    public void testGetProtein() {
+        assertEquals(testDiet.getProtein(), 167.2);
+    }
+
+    @Test
+    public void testGetCarbohydrates() {
+        assertEquals(testDiet.getCarbohydrates(), 331.8828125);
     }
 
 }

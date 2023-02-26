@@ -67,7 +67,7 @@ public class Diet {
     public void setUpCustom() {
         double calorieGoal = calculateCalorie(1);
         calories.setGoal(calorieGoal);
-        protein.setGoal(calculateProtein(1));
+        protein.setGoal(calculateProtein(2.2));
         carbohydrates.setGoal(calculateCarbohydrates(calorieGoal));
     }
 
@@ -109,9 +109,6 @@ public class Diet {
     // EFFECTS: returns the carbohydrates needed in grams.
     public double calculateCarbohydrates(double calorieGoal) {
         double ratio = 0.125;
-        System.out.println(calorieGoal);
-        System.out.println(ratio);
-        System.out.println((calorieGoal * ratio));
         return (calorieGoal * ratio);
     }
 

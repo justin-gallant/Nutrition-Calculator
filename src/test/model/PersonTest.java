@@ -41,4 +41,5 @@ class PersonTest {
         test.setDietSetting(1);
         assertEquals(test.getDietSetting(),1);
     }
+
 }
