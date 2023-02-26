@@ -82,6 +82,7 @@ public class DietTest {
         assertEquals(femaleDiet.getCalories(), 1780.25);
         assertEquals(femaleDiet.getProtein(), 110.00000000000001);
         assertEquals(femaleDiet.getCarbohydrates(), 222.53125);
+        femaleDiet.setCarbohydrates(1);
     }
 
 }

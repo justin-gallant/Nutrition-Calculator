@@ -21,7 +21,7 @@ public class Diet {
         } else if (type.equals("G")) {
             name = "Gain";
             setUpGain();
-        } else if (type.equals("C")) {
+        } else {
             setUpCustom();
         }
     }
