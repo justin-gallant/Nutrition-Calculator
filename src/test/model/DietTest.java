@@ -45,16 +45,43 @@ public class DietTest {
     @Test
     public void testGetCalories() {
         assertEquals(testDiet.getCalories(), 2655.0625);
+        testDiet.setCalories(2650);
+        assertEquals(testDiet.getCalories(), 2650);
     }
 
     @Test
     public void testGetProtein() {
         assertEquals(testDiet.getProtein(), 167.2);
+        testDiet.setProtein(165);
+        assertEquals(testDiet.getProtein(), 165);
     }
 
     @Test
     public void testGetCarbohydrates() {
         assertEquals(testDiet.getCarbohydrates(), 331.8828125);
+        testDiet.setCarbohydrates(330);
+        assertEquals(testDiet.getCarbohydrates(), 330);
+    }
+
+    @Test
+    public void testGetName() {
+        assertEquals(testDiet.getName(), "Maintenance");
+        testDiet.setName("somethingElse");
+        assertEquals(testDiet.getName(), "somethingElse");
+    }
+
+    @Test
+    public void testGetType() {
+        assertEquals(testDiet.getType(), "M");
+    }
+
+    @Test
+    public void testFemale() {
+        Person female = new Person("TestF", "F", 18, 165, 50);
+        Diet femaleDiet = new Diet(female, "C");
+        assertEquals(femaleDiet.getCalories(), 1780.25);
+        assertEquals(femaleDiet.getProtein(), 110.00000000000001);
+        assertEquals(femaleDiet.getCarbohydrates(), 222.53125);
     }
 
 }

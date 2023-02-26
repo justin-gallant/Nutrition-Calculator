@@ -31,7 +31,15 @@ class PersonTest {
     public void testGetDiets() {
         ArrayList<Diet> testList = new ArrayList<>();
         testList.add(testDiet);
+        assertEquals(test.getDiets(), testList);
+        testList.remove(0);
+        test.remove(0);
         assertEquals(test.getDiets(),testList);
+    }
+
+    @Test
+    public void testGetName() {
+        assertEquals(test.getName(), "Test");
     }
 
     @Test
