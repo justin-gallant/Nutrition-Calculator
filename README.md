@@ -12,9 +12,8 @@ and set their goals accordingly.
 
 ### User Story 1 - Basic Functionality:
 - As a user, I want to be able to modify my goals
-- As a user, I want to be able to get information about the big three nutrients essential for basic dieting
 - As a user, I want to be able to add or remove different nutritional profiles for different goals (diets)
-- As a user, I want the app to calculate the dietary requirements for my goal
+- As a user, I want the app to calculate the dietary requirements for my goal and show them to me
 - As a user, I want to create a custom diet (for an advanced user)
 
 ## Phase 1 - ...:

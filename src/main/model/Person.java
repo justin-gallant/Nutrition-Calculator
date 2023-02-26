@@ -11,8 +11,7 @@ public class Person {
     private int weight;
     private int dietSetting = 0;
 
-    ArrayList<Diet> diets = new ArrayList<>();
-    Scanner scanner  = new Scanner(System.in);
+    private ArrayList<Diet> diets = new ArrayList<>();
 
     // CONSTRUCTOR
     public Person(String name, String sex, int age, int height, int weight) {
@@ -23,8 +22,31 @@ public class Person {
         this.weight = weight;
     }
 
-    // GETTERS AND SETTERS
+    // REQUIRES: index >= 0 && index <= diets.size()
+    // EFFECTS: returns the diet at provided index
+    public Diet getDietAtIndex(int index) {
+        return diets.get(index);
+    }
 
+    // MODIFIES: this
+    // EFFECTS: adds a diet to the profile
+    public ArrayList<Diet> getDiets() {
+        return diets;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: adds a diet to the profile
+    public void addDiet(Diet diet) {
+        this.diets.add(diet);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: adds a diet to the profile
+    public void remove(int index) {
+        this.diets.remove(index);
+    }
+
+    // DEFAULT GETTERS AND SETTERS
     public int getDietSetting() {
         return dietSetting;
     }
@@ -72,4 +94,5 @@ public class Person {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
 }

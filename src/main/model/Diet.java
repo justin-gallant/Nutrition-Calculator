@@ -1,44 +1,29 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Diet {
+    String name;
     String type;
     Person operateOn;
     Calories calories = new Calories();
     Protein protein = new Protein();
     Carbohydrates carbohydrates = new Carbohydrates();
 
-    ArrayList<Nutrient> nutrients = new ArrayList<>();
-    Scanner scanner  = new Scanner(System.in);
-
     // CONSTRUCTOR
     public Diet(Person person, String type) {
         operateOn = person;
         this.type = type;
         if (type.equals("L")) {
+            name = "Loss";
             setUpLoss();
         } else if (type.equals("M"))  {
+            name = "Maintenance";
             setUpMaintenance();
         } else if (type.equals("G")) {
+            name = "Gain";
             setUpGain();
+        } else if (type.equals("C")) {
+            setUpCustom();
         }
-        printDiet();
-        System.out.println("\nSuccessfully created Diet!");
-    }
-
-    // EFFECTS: prints out the diet
-    public void printDiet() {
-        System.out.println("Printing Diet for " + operateOn.getName());
-        System.out.print("Daily recommended calorie intake: ");
-        System.out.println(calories.getGoal());
-
-        System.out.print("Daily recommended protein intake: ");
-        System.out.println(protein.getGoal());
-
-        System.out.print("Daily recommended carbohydrate intake: ");
-        System.out.println(protein.getGoal());
     }
 
     // MODIFIES: this
@@ -77,10 +62,19 @@ public class Diet {
         carbohydrates.setGoal(calculateCarbohydrates(calorieGoal));
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets up a custom diet
+    public void setUpCustom() {
+        double calorieGoal = calculateCalorie(1);
+        calories.setGoal(calorieGoal);
+        protein.setGoal(calculateProtein(1));
+        carbohydrates.setGoal(calculateCarbohydrates(calorieGoal));
+    }
+
     // REQUIRES: multiplier > 0
     // EFFECTS: calculates caloric intake
     public double calculateCalorie(double multiplier) {
-        return (bmrCalculator() * multiplier + 500);
+        return ((bmrCalculator() + 500) * multiplier);
     }
 
     // REQUIRES:
@@ -114,7 +108,57 @@ public class Diet {
     // REQUIRES: multiplier > 0, weight > 0
     // EFFECTS: returns the carbohydrates needed in grams.
     public double calculateCarbohydrates(double calorieGoal) {
-        int ratio = (300 / 2000);
+        double ratio = 0.125;
+        System.out.println(calorieGoal);
+        System.out.println(ratio);
+        System.out.println((calorieGoal * ratio));
         return (calorieGoal * ratio);
     }
+
+    // MODIFIES: this
+    // EFFECTS: sets the calorie goal
+    public void setCalories(double calorieGoal) {
+        calories.setGoal(calorieGoal);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets the protein goal
+    public void setProtein(double proteinGoal) {
+        protein.setGoal(proteinGoal);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets the carbohydrate goal
+    public void setCarbohydrates(double carbohydrateGoal) {
+        carbohydrates.setGoal(carbohydrateGoal);
+    }
+
+    // EFFECTS: returns the calorie goal
+    public double getCalories() {
+        return calories.getGoal();
+    }
+
+    // EFFECTS: returns the protein goal
+    public double getProtein() {
+        return protein.getGoal();
+    }
+
+    // EFFECTS: returns the carbohydrate goal
+    public double getCarbohydrates() {
+        return carbohydrates.getGoal();
+    }
+
+    // GETTER AND SETTER
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
 }
