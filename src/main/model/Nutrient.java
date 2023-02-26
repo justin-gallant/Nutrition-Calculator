@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public abstract class Nutrient {
     String name;
-    ArrayList<Double> goal = new ArrayList<>();
+    double goal;
 
-    void setGoal(double newGoal, Person person) {
-        goal.set(person.getDietSetting(), newGoal);
+    void setGoal(double newGoal) {
+        this.goal = newGoal;
     }
 
-    double getGoal(Person person) {
-        return goal.get(person.getDietSetting());
+    double getGoal() {
+        return this.goal;
     }
 
 }

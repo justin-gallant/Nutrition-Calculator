@@ -15,27 +15,12 @@ public class Person {
     Scanner scanner  = new Scanner(System.in);
 
     // CONSTRUCTOR
-    public Person() {
-        System.out.println("Thank you for using CalorieCounter.");
-        System.out.println("We can now begin setting up your profile. Please fill in the information below:");
-        setUp();
-        System.out.println("Profile has been set up.");
-    }
-
-    // MODIFIES: this
-    // EFFECTS: sets up a person with all fields.
-    public void setUp() {
-        System.out.println("What is your name?");
-        this.name = scanner.next();
-        System.out.println("What is your sex? (\"M\" or \"F\")");
-        this.sex = scanner.next();
-        System.out.println("How old are you?");
-        this.age = scanner.nextInt();
-        System.out.println("What is your height (cm)?");
-        this.height = scanner.nextInt();
-        System.out.println("How much do you weigh (kg)?");
-        this.weight = scanner.nextInt();
-        System.out.println("Thank you for your input. Setting up Account now...");
+    public Person(String name, String sex, int age, int height, int weight) {
+        this.name = name;
+        this.sex = sex;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
     }
 
     // GETTERS AND SETTERS

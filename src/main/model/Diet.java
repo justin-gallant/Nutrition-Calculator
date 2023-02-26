@@ -4,20 +4,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Diet {
-    final String type;
+    String type;
     Person operateOn;
-    Calories calories;
-    Protein protein;
-    Carbohydrates carbohydrates;
+    Calories calories = new Calories();
+    Protein protein = new Protein();
+    Carbohydrates carbohydrates = new Carbohydrates();
 
     ArrayList<Nutrient> nutrients = new ArrayList<>();
     Scanner scanner  = new Scanner(System.in);
 
     // CONSTRUCTOR
-    public Diet(Person person) {
-        System.out.println("Select the purpose of this diet: \nL - Weight Loss\nM - Maintenance\nG - Weight Gain");
-        type = scanner.next();
+    public Diet(Person person, String type) {
         operateOn = person;
+        this.type = type;
         if (type.equals("L")) {
             setUpLoss();
         } else if (type.equals("M"))  {
@@ -25,46 +24,63 @@ public class Diet {
         } else if (type.equals("G")) {
             setUpGain();
         }
+        printDiet();
+        System.out.println("\nSuccessfully created Diet!");
+    }
+
+    // EFFECTS: prints out the diet
+    public void printDiet() {
+        System.out.println("Printing Diet for " + operateOn.getName());
+        System.out.print("Daily recommended calorie intake: ");
+        System.out.println(calories.getGoal());
+
+        System.out.print("Daily recommended protein intake: ");
+        System.out.println(protein.getGoal());
+
+        System.out.print("Daily recommended carbohydrate intake: ");
+        System.out.println(protein.getGoal());
     }
 
     // MODIFIES: this
     // EFFECTS: sets up a diet for weight loss
     public void setUpLoss() {
-        double calorieMultiplier = 0.8;
+        double calorieMultiplier = 0.9;
         double proteinMultiplier = (2.2 * 1.15);
 
         double calorieGoal = calculateCalorie(calorieMultiplier);
-        calories.setGoal(calorieGoal, operateOn);
-        protein.setGoal(calculateProtein(proteinMultiplier), operateOn);
-        carbohydrates.setGoal(calculateCarbohydrates(calorieGoal), operateOn);
+        calories.setGoal(calorieGoal);
+        protein.setGoal(calculateProtein(proteinMultiplier));
+        carbohydrates.setGoal(calculateCarbohydrates(calorieGoal));
     }
 
     // MODIFIES: this
     // EFFECTS: sets up a diet for weight retention
     public void setUpMaintenance() {
-        double calorieMultiplier = 1;
+        double calorieMultiplier = 1.15;
         double proteinMultiplier = (2.2 * 0.95);
 
         double calorieGoal = calculateCalorie(calorieMultiplier);
-        calories.setGoal(calorieGoal, operateOn);
-        protein.setGoal(calculateProtein(proteinMultiplier), operateOn);
-        carbohydrates.setGoal(calculateCarbohydrates(calorieGoal), operateOn);
+        calories.setGoal(calorieGoal);
+        protein.setGoal(calculateProtein(proteinMultiplier));
+        carbohydrates.setGoal(calculateCarbohydrates(calorieGoal));
     }
 
     // MODIFIES: this
     // EFFECTS: sets up a diet for weight gain
     public void setUpGain() {
-        double calorieMultiplier = 1.2;
+        double calorieMultiplier = 1.35;
         double proteinMultiplier = (2.2 * 1.15);
 
         double calorieGoal = calculateCalorie(calorieMultiplier);
-        calories.setGoal(calorieGoal, operateOn);
-        protein.setGoal(calculateProtein(proteinMultiplier), operateOn);
-        carbohydrates.setGoal(calculateCarbohydrates(calorieGoal), operateOn);
+        calories.setGoal(calorieGoal);
+        protein.setGoal(calculateProtein(proteinMultiplier));
+        carbohydrates.setGoal(calculateCarbohydrates(calorieGoal));
     }
 
+    // REQUIRES: multiplier > 0
+    // EFFECTS: calculates caloric intake
     public double calculateCalorie(double multiplier) {
-        return (bmrCalculator() * multiplier);
+        return (bmrCalculator() * multiplier + 500);
     }
 
     // REQUIRES:
